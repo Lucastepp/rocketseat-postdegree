@@ -2,10 +2,10 @@
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "dotenv": "^16.4.7",
-    "fastify": "^5.2.1",
+    "fastify": "^5.0.0",
     "httpie": "^1.1.2",
     "knex": "^3.1.0",
-    "node": "^22.13.0",
+    "pg": "^8.13.1",
     "sqlite3": "^5.1.7",
     "vitest": "^3.0.4",
     "zod": "^3.24.1"
@@ -18,20 +18,24 @@
     "eslint": "^8.57.1",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   },
   "scripts": {
     "start-ts": "ts-node src/server.ts",
-    "build": "tsc -p tsconfig.json",
     "dev": "tsx  watch src/server.ts",
     "lint": "eslint sre --ext .ts",
     "knex": "node --import tsx ./node_modules/.bin/knex",
+    "build": "tsup src -d build",
     "test": "vitest"
   },
   "name": "02-api-rest-nodejs",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
